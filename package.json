@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon --ext *",
     "compile": "tsc",
-    "start": "tsc public/script.ts",
+    "start": "nodemon main.ts",
     "x": "tsc public/script.ts -w && nodemon main.ts"
   },
   "author": "",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.7.0",
-    "bootstrap": "^5.3.2"
+    "bootstrap": "^5.3.2",
+    "moment": "^2.30.1"
   }
 }

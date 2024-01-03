@@ -1,15 +1,12 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
-
-async function main() {
-  const post = await prisma.driver.create({
-    data: {
-      driver_name: "Kevin Huang",
-      driver_age: 24,
-    },
+const update_logbook_hours = async () => {
+  const update_hours = await fetch("http://localhost:3000/logbook", {
+    method: "PATCH",
+    body: JSON.stringify({
+      hours_driven: "5",
+    }),
   });
-  console.log(post);
-}
 
-main();
+  console.log(update_hours);
+};
+
+update_logbook_hours();

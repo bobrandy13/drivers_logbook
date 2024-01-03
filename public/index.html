@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="style.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="js/moment-with-locales.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Drivers logbook</title>
     <link
@@ -56,12 +57,12 @@
           <label
             for="date-input"
             class="block mb-2 w-full text-sm font-medium text-gray-900 dark:text-white"
-            >Date</label
-          >
+            >Date
+          </label>
           <input
             type="text"
             id="date-input"
-            placeholder="Enter date"
+            placeholder="DD/MM/YYYY"
             class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
@@ -120,42 +121,52 @@
         <div class="m-4">
           <label
             for="road-conditions-input"
-            class="block mb-2 text-sm font-medium w-full text-gray-900 dark:text-white"
-            >Conditions Road</label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an option</label
           >
-          <input
-            type="text"
+          <select
             id="road-conditions-input"
-            placeholder="Enter road conditions"
-            class="bg-gray-50 border border-gray-300 w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          />
+            class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
+            <option value="MR" selected>Main Road</option>
+            <option value="ML">Multi-laned</option>
+            <option value="QS">Quiet Street</option>
+            <option value="Se">Sealed</option>
+            <option value="U">Unsealed</option>
+          </select>
         </div>
         <div class="m-4">
           <label
             for="weather-conditions-input"
-            class="block mb-2 text-sm font-medium w-full text-gray-900 dark:text-white"
-            >Conditions Weather</label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Weather condition</label
           >
-          <input
-            type="text"
+          <select
             id="weather-conditions-input"
-            placeholder="Enter weather conditions"
-            class="bg-gray-50 border border-gray-300 w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          />
+            class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
+            <option value="F" selected>Fine</option>
+            <option value="R">Raining</option>
+            <option value="Sn">Snow</option>
+            <option value="I">Icy</option>
+            <option value="F">Fog</option>
+          </select>
         </div>
         <div class="m-0">
           <div class="m-4">
             <label
               for="traffic-conditions-input"
-              class="block mb-2 text-sm font-medium w-full text-gray-900 dark:text-white"
-              >Conditions Traffic</label
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Traffic Conditions</label
             >
-            <input
-              type="text"
+            <select
               id="traffic-conditions-input"
-              placeholder="Enter traffic conditions"
-              class="bg-gray-50 border border-gray-300 w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            />
+              class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="L" selected>Light</option>
+              <option value="M">Moderate</option>
+              <option value="H">Heavy</option>
+            </select>
           </div>
           <div class="m-4">
             <label
@@ -178,7 +189,7 @@
               >Time Start</label
             >
             <input
-              type="text"
+              type="time"
               id="time-start-input"
               placeholder="Enter time start"
               class="bg-gray-50 border border-gray-300 w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -192,7 +203,7 @@
               >Time End</label
             >
             <input
-              type="text"
+              type="time"
               id="time-end-input"
               placeholder="Enter time end"
               class="bg-gray-50 border border-gray-300 w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -242,7 +253,7 @@
                 <th scope="col" class="px-6 py-3">Delete</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody id="table-body"></tbody>
           </table>
         </div>
         <nav
@@ -252,69 +263,37 @@
           <span
             class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto"
             >Showing
-            <span class="font-semibold text-gray-900 dark:text-white"
+            <span
+              class="font-semibold text-gray-900 dark:text-white"
+              id="current-showing"
               >1-10</span
             >
             of
-            <span class="font-semibold text-gray-900 dark:text-white"
+            <span
+              class="font-semibold text-gray-900 dark:text-white"
+              id="showing-total"
               >1000</span
             ></span
           >
-          <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
-            <li>
-              <a
-                href="#"
-                class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >Previous</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >1</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >2</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                aria-current="page"
-                class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                >3</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >4</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >5</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >Next</a
-              >
-            </li>
-          </ul>
+          <ul
+            class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8"
+            id="pagination-buttons"
+          ></ul>
         </nav>
+        <div></div>
       </div>
     </div>
+    <a
+      href="#"
+      class="block max-w-full p-6 h-1/2 m-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+    >
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        Driving Stats
+      </h5>
+      <p class="font-normal text-gray-700 dark:text-gray-400">Hours driven</p>
+    </a>
 
     <!-- need to build the front end table -->
 

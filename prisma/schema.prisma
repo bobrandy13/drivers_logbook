@@ -12,9 +12,10 @@ datasource db {
 
 model Driver {
   driver_id   String    @id @default(auto()) @map("_id") @db.ObjectId
-  driver_name String
+  driver_name String @unique
   driver_age  Int
   Logbook     Logbook[]
+  total_hours_driven Int
 }
 
 model Logbook {
@@ -27,7 +28,7 @@ model Logbook {
 }
 
 model Logbook_entry {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @id @default(auto()) @map("_id") @db.ObjectId 
 
   date                 String
   vehicle_registration String
