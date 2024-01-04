@@ -125,7 +125,7 @@ var Driver = /** @class */ (function () {
                             method: "PATCH",
                             body: JSON.stringify({
                                 hours_driven: "20",
-                            })
+                            }),
                         })];
                     case 1:
                         update_hours = _a.sent();
@@ -434,6 +434,7 @@ function delete_entry(e) {
     if (e.target.id) {
         logbook.delete_logbook_entries(e.target.id);
     }
+    location.reload();
 }
 function handle_pagination(e) {
     if (e.target.id) {

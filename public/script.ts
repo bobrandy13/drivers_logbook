@@ -141,15 +141,14 @@ class Driver {
 
   async update_logbook_hours(hours_driven: Number) {
     const update_hours = await fetch("http://localhost:3000/logbook", {
-      method: "PATCH", 
+      method: "PATCH",
       body: JSON.stringify({
         hours_driven: "20",
-      })
-    }) 
-    console.log("update hours", update_hours)
+      }),
+    });
+    console.log("update hours", update_hours);
 
-    return update_hours; 
-
+    return update_hours;
   }
 
   addLogbook(): void {
@@ -500,6 +499,8 @@ function delete_entry(e: any) {
   if (e.target.id) {
     logbook.delete_logbook_entries(e.target.id);
   }
+
+  location.reload();
 }
 
 function handle_pagination(e: any) {
